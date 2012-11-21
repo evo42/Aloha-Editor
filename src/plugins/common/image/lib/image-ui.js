@@ -1,34 +1,41 @@
-/*global documents: true define: true */
-/*!
- * Aloha Editor
- * Author & Copyright (c) 2011 Gentics Software GmbH
- * aloha-sales@gentics.com
- * Licensed under the terms of http://www.aloha-editor.com/license.html
+/* image-ui.js is part of Aloha Editor project http://aloha-editor.org
+ *
+ * Aloha Editor is a WYSIWYG HTML5 inline editing library and editor. 
+ * Copyright (c) 2010-2012 Gentics Software GmbH, Vienna, Austria.
+ * Contributors http://aloha-editor.org/contribution.php 
  * 
- * Author : Nicolas Karageuzian - http://nka.me
+ * Aloha Editor is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or any later version.
+ *
+ * Aloha Editor is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * 
+ * As an additional permission to the GNU GPL version 2, you may distribute
+ * non-source (e.g., minimized or compacted) forms of the Aloha-Editor
+ * source code without the copy of the GNU GPL normally required,
+ * provided you include this license notice and a URL through which
+ * recipients can access the Corresponding Source.
  */
-define([
-	'jquery',
-    'util/class',
-	'i18n!image/nls/i18n',
-	'i18n!aloha/nls/i18n',
-	'ui/ui',
-	'ui/scopes',
-    'ui/button',
-    'ui/toggleButton',
-    'ui/port-helper-attribute-field'
-],
+define(['jquery', 'util/class', 'i18n!image/nls/i18n', 'i18n!aloha/nls/i18n', 'ui/ui', 'ui/scopes', 'ui/button', 'ui/toggleButton', 'ui/port-helper-attribute-field'],
+
 function (
-	jQuery,
-	Class,
-	i18n,
-	i18nCore,
-	Ui,
-	Scopes,
-	Button,
-	ToggleButton,
-	AttributeField
-) {
+jQuery,
+Class,
+i18n,
+i18nCore,
+Ui,
+Scopes,
+Button,
+ToggleButton,
+AttributeField) {
 	'use strict';
 
 	var $ = jQuery;
@@ -36,26 +43,26 @@ function (
 	var Aloha = window.Aloha;
 
 	/**
-     * Toolbar elements for Image plugin
-     *
-     * @class MyClass
-     */
+	 * Toolbar elements for Image plugin
+	 *
+	 * @class MyClass
+	 */
 	return Class.extend({
-        /**
-         * Empty constructor
-         *
-         * @method
-         * @constructor
-         */
+		/**
+		 * Empty constructor
+		 *
+		 * @method
+		 * @constructor
+		 */
 		_constructor: function () {
- 
+
 		},
 
-         /**
-          * Initialize Floating menu buttons according to plugin config
-          */
-        init: function (plugin) {
-			plugin.floatingMenuControl = this;
+		/**
+		 * Initialize Floating menu buttons according to plugin config
+		 */
+		init: function (plugin) {
+			plugin.uiControl = this;
 			this.plugin = plugin;
 
 			Scopes.createScope(plugin.name, 'Aloha.empty');
@@ -69,8 +76,8 @@ function (
 			this._addUIResizeButtons();
 			this._addUIAspectRatioToggleButton();
 
-//			 TODO fix the function and reenable this button 
-//			this._addNaturalSizeButton();
+			//	TODO fix the function and reenable this button 
+			//	this._addNaturalSizeButton();
 		},
 
 		/**
@@ -81,9 +88,9 @@ function (
 
 			this._imageCnrRatioButton = Ui.adopt("imageCnrRatio", ToggleButton, {
 				tooltip: i18n.t('button.toggle.tooltip'),
-				icon: 'aloha-icon-cnr-ratio',
+				icon: 'aloha-img aloha-icon-cnr-ratio',
 				scope: plugin.name,
-				click: function(){
+				click: function () {
 					plugin.toggleKeepAspectRatio();
 				}
 			});
@@ -95,7 +102,7 @@ function (
 				plugin.keepAspectRatio = true;
 			}
 		},
-		
+
 		/**
 		 * Adds the reset button to the floating menu for the given tab 
 		 */
@@ -104,14 +111,14 @@ function (
 
 			this._imageCnrResetButton = Ui.adopt("imageCnrReset", Button, {
 				tooltip: i18n.t('Reset'),
-				icon: 'aloha-icon-cnr-reset',
+				icon: 'aloha-img aloha-icon-cnr-reset',
 				scope: plugin.name,
-				click: function(){
+				click: function () {
 					plugin.reset();
 				}
 			});
 		},
-		
+
 		/**
 		 * Adds the insert button to the floating menu
 		 */
@@ -120,20 +127,20 @@ function (
 
 			this._insertImageButton = Ui.adopt("insertImage", Button, {
 				tooltip: i18n.t('button.addimg.tooltip'),
-				icon: 'aloha-button aloha-image-insert',
+				icon: 'aloha-img aloha-image-insert',
 				scope: 'Aloha.continuoustext',
-				click: function(){
+				click: function () {
 					plugin.insertImg();
 				}
 			});
 		},
 
-        /**
-         * Adds the ui meta fields (search, title) to the floating menu. 
-         */
+		/**
+		 * Adds the ui meta fields (search, title) to the floating menu. 
+		 */
 		_addUIMetaButtons: function () {
 			var plugin = this.plugin;
-			
+
 			this.imgSrcField = AttributeField({
 				label: i18n.t('field.img.src.label'),
 				labelClass: 'aloha-image-input-label',
@@ -141,9 +148,11 @@ function (
 				name: 'imageSource',
 				scope: plugin.name
 			});
-			this.imgSrcField.setTemplate( '<span><b>{name}</b><br/>{url}</span>' );
+
+			//this.imgSrcField.setTemplate('<span><b>{name}</b><br/>{url}</span>');
+			this.imgSrcField.setTemplate('<img width="50px" src="{url}"><span><b>{name}</b><br/>{description}</span>');
 			this.imgSrcField.setObjectTypeFilter(plugin.objectTypeFilter);
-			
+
 			this.imgTitleField = AttributeField({
 				label: i18n.t('field.img.title.label'),
 				labelClass: 'aloha-image-input-label',
@@ -151,30 +160,32 @@ function (
 				name: 'imageTitle',
 				scope: plugin.name
 			});
+			//this.imgTitleField.setTemplate('<span><b>{name}</b><br/>{url}</span>');
+			//this.imgTitleField.setObjectTypeFilter(plugin.objectTypeFilter);
 			this.imgTitleField.setObjectTypeFilter();
 		},
-		
+
 		/**
 		 * Adds the ui align buttons to the floating menu
 		 */
 		_addUIAlignButtons: function () {
 			var plugin = this.plugin;
-		
+
 			this._imageAlignLeftButton = Ui.adopt("imageAlignLeft", Button, {
 				tooltip: i18n.t('button.img.align.left.tooltip'),
 				icon: 'aloha-img aloha-image-align-left',
 				scope: plugin.name,
-				click : function () {
+				click: function () {
 					var el = jQuery(plugin.getPluginFocus());
 					el.add(el.parent()).css('float', 'left');
 				}
 			});
-			
+
 			this._imageAlignRightButton = Ui.adopt("imageAlignRight", Button, {
 				tooltip: i18n.t('button.img.align.right.tooltip'),
 				icon: 'aloha-img aloha-image-align-right',
 				scope: plugin.name,
-				click : function () {
+				click: function () {
 					var el = jQuery(plugin.getPluginFocus());
 					el.add(el.parent()).css('float', 'right');
 				}
@@ -184,7 +195,7 @@ function (
 				tooltip: i18n.t('button.img.align.none.tooltip'),
 				icon: 'aloha-img aloha-image-align-none',
 				scope: plugin.name,
-				click : function () {
+				click: function () {
 					var el = jQuery(plugin.getPluginFocus());
 					el.add(el.parent()).css({
 						'float': 'none',
@@ -193,7 +204,7 @@ function (
 				}
 			});
 		},
-		
+
 		/**
 		 * Adds the ui margin buttons to the floating menu
 		 */
@@ -208,7 +219,7 @@ function (
 					jQuery(plugin.getPluginFocus()).increase('padding');
 				}
 			});
-			
+
 			this._imageDecPaddingButton = Ui.adopt("imageDecPadding", Button, {
 				tooltip: i18n.t('padding.decrease'),
 				icon: 'aloha-img aloha-image-padding-decrease',
@@ -218,10 +229,10 @@ function (
 				}
 			});
 		},
-		
+
 		/**
 		 * Adds the crop buttons to the floating menu
-		 */		
+		 */
 		_addUICropButtons: function () {
 			var plugin = this.plugin;
 
@@ -229,7 +240,7 @@ function (
 
 			this._imageCropButton = Ui.adopt("imageCropButton", ToggleButton, {
 				tooltip: i18n.t('Crop'),
-				icon: 'aloha-icon-cnr-crop',
+				icon: 'aloha-img aloha-icon-cnr-crop',
 				scope: plugin.name,
 				click: function () {
 					if (this.getState()) {
@@ -241,15 +252,15 @@ function (
 			});
 		},
 
-        /**
-         * Adds the resize buttons to the floating menu
-         */	
+		/**
+		 * Adds the resize buttons to the floating menu
+		 */
 		_addUIResizeButtons: function () {
 			var plugin = this.plugin;
 
 			// Manual resize fields
 			this.imgResizeHeightField = AttributeField({
-				label:  i18n.t('height'),
+				label: i18n.t('height'),
 				labelClass: 'aloha-image-input-label',
 				name: "imageResizeHeight",
 				width: 50,
@@ -257,9 +268,9 @@ function (
 			});
 			this.imgResizeHeightField.maxValue = plugin.settings.maxHeight;
 			this.imgResizeHeightField.minValue = plugin.settings.minHeight;
-			
+
 			this.imgResizeWidthField = AttributeField({
-				label:  i18n.t('width'),				
+				label: i18n.t('width'),
 				labelClass: 'aloha-image-input-label',
 				name: "imageResizeWidth",
 				width: 50,
@@ -267,7 +278,7 @@ function (
 			});
 			this.imgResizeWidthField.maxValue = plugin.settings.maxWidth;
 			this.imgResizeWidthField.minValue = plugin.settings.minWidth;
- 		},
+		},
 
 		/**
 		 * Adds the natural size button to the floating menu
@@ -303,6 +314,5 @@ function (
 			// the jqueryui toolbar because it seems to be a hack that
 			// is not needed with the new implementation.
 		}
-    });
+	});
 });
-	
