@@ -80,9 +80,9 @@ function (jQuery, Utils) {
 					return -1;
 				};
 			}
-			
+
 			cell.tableObj.selection.baseCellPosition = [cell._virtualY(), cell._virtualX()];
-			
+
 			if ($event.shiftKey) {
 				// shift-click to select a coherent cell range
 				//
@@ -101,7 +101,12 @@ function (jQuery, Utils) {
 					top = bottom;
 					bottom = topLeft[0];
 				}
-				var rect = {"top": top, "right": right, "bottom": bottom, "left": left};
+				var rect = {
+					"top": top,
+					"right": right,
+					"bottom": bottom,
+					"left": left
+				};
 
 				var table = cell.tableObj;
 				var $rows = table.obj.children().children('tr');
@@ -110,12 +115,12 @@ function (jQuery, Utils) {
 				table.selection.selectedCells = [];
 				var selectClass = table.get('classCellSelected');
 				Utils.walkGrid(grid, function (cellInfo, j, i) {
-					if ( Utils.containsDomCell(cellInfo) ) {
+					if (Utils.containsDomCell(cellInfo)) {
 						if (i >= rect.top && i <= rect.bottom && j >= rect.left && j <= rect.right) {
-							jQuery( cellInfo.cell ).addClass(selectClass);
+							jQuery(cellInfo.cell).addClass(selectClass);
 							table.selection.selectedCells.push(cellInfo.cell);
 						} else {
-							jQuery( cellInfo.cell ).removeClass(selectClass);
+							jQuery(cellInfo.cell).removeClass(selectClass);
 						}
 					}
 				});
@@ -126,7 +131,7 @@ function (jQuery, Utils) {
 				cell._editableMouseDown($event);
 				cell._startCellSelection();
 			}
-		} );
+		});
 
 		$wrapper.bind('blur', function ($event) {
 			cell._editableBlur($event);
