@@ -68,8 +68,7 @@ function ($, Component) {
 		 *        Pressing any buttons in the dialog will automatically close the dialog.
 		 * @return
 		 *        A function that can be called to close the dialog.
-		 */
-		'confirm': function (props) {
+		 */'confirm': function (props) {
 			var buttons = props.buttons || {};
 			buttons['Yes'] = buttons['Yes'] || props.yes || $.noop;
 			buttons['No'] = buttons['No'] || props.no || $.noop;
@@ -105,8 +104,7 @@ function ($, Component) {
 		 *        cls - the root element of the dialog will receive this class
 		 * @return
 		 *        A function that can be called to close the dialog.
-		 */
-		'alert': function (props) {
+		 */'alert': function (props) {
 			var dialog = makeDialogDiv(props).dialog(
 			$.extend(makeDialogProps(props, 'Alert'), {
 				'buttons': wrapDialogButtons({
@@ -132,8 +130,7 @@ function ($, Component) {
 		 * @return
 		 *        A function that can be called to update the progress bar with a value from 0 to 100.
 		 *        If null or undefined is passed, the dialog will be closed.
-		 */
-		'progress': function (props) {
+		 */'progress': function (props) {
 			var progressbar = $("<div>").progressbar({
 				// TODO if no initial value is specific, show a full but an animated progress bar instead
 				value: null != props.value ? props.value : 100

@@ -45,7 +45,8 @@ Maps) {
 	 * @class Block manager singleton
 	 */
 	var BlockManager = new(Class.extend(Observable,
-	/** @lends block.blockmanager */ {
+	/** @lends block.blockmanager */
+	{
 
 		/**
 		 * @name block.blockmanager#block-selection-change
