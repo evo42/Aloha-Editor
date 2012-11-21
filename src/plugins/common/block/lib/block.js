@@ -51,7 +51,8 @@ PubSub) {
 	 * @class An abstract block that must be used as a base class for custom blocks
 	 */
 	var AbstractBlock = Class.extend(Observable,
-	/** @lends block.block.AbstractBlock */ {
+	/** @lends block.block.AbstractBlock */
+	{
 
 		/**
 		 * Event which is triggered if the block attributes change.
@@ -1198,7 +1199,8 @@ PubSub) {
 	 * @extends block.block.AbstractBlock
 	 */
 	var DefaultBlock = AbstractBlock.extend(
-	/** @lends block.block.DefaultBlock */ {
+	/** @lends block.block.DefaultBlock */
+	{
 		update: function ($element, postProcessFn) {
 			postProcessFn();
 		}
@@ -1210,7 +1212,8 @@ PubSub) {
 	 * @extends block.block.AbstractBlock
 	 */
 	var DebugBlock = AbstractBlock.extend(
-	/** @lends block.block.DebugBlock */ {
+	/** @lends block.block.DebugBlock */
+	{
 		title: 'Debugging',
 		init: function ($element, postProcessFn) {
 			this.update($element, postProcessFn);
@@ -1237,7 +1240,8 @@ PubSub) {
 	 * @extends block.block.AbstractBlock
 	 */
 	var EmptyBlock = AbstractBlock.extend(
-	/** @lends block.block.EmptyBlock */ {
+	/** @lends block.block.EmptyBlock */
+	{
 		title: 'EmptyBlock',
 		init: function () {},
 		activate: function () {},
