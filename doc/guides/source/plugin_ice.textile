@@ -1,0 +1,7 @@
+h2. ice Plugin
+
+The ice library from @NYTimes enables the author to track changes made from other authors -- added and removed content will be highlighted.
+
+ice: https://github.com/NYTimes/ice
+
+endprologue.
