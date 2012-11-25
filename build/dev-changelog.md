@@ -39,4 +39,6 @@ All changes are categorized into one of the following keywords:
 - **ENHANCEMENT**: used hints from #749 to improve file size of icons
 - **BUG**: link-plugin: Fix anchor class would always be set to cssclass even when cssclassregex was not configured
 - **BUG**: link-plugin: Fix metaKey + click doesn't follow link (still doesn't work on IE7)
+- **FEATURE**: Track changes of a contentEditable using NYTimes ice library. Author will see added or removed content by other authors. -- https://github.com/NYTimes/ice
+
 
