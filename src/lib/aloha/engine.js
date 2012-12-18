@@ -671,12 +671,24 @@ define(['aloha/core', 'aloha/ecma5shims', 'jquery'], function (Aloha, $_, jQuery
 		document.body.appendChild(font);
 		if (size == "xxx-large") {
 			font.size = 7;
+		} else if (size == "xx-large") {
+			font.size = 6;
+		} else if (size == "x-large") {
+			font.size = 5;
+		} else if (size == "large") {
+			font.size = 4;
+		} else if (size == "medium") {
+			font.size = 3;
+		} else if (size == "small") {
+			font.size = 2;
+		} else if (size == "xx-small") {
+			font.size = 1;
 		} else {
 			font.style.fontSize = size;
 		}
 		var pixelSize = parseInt($_.getComputedStyle(font).fontSize, 10);
 		document.body.removeChild(font);
-
+		
 		// "Let returned size be 1."
 		var returnedSize = 1;
 
