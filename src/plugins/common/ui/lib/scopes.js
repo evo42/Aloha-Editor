@@ -83,8 +83,7 @@ Maps) {
 				counters = addedScopes[scope] = {};
 			}
 			var counter = counters[requestor] || 0;
-			counter += 1;
-			counters[requestor] = counter;
+			counters[requestor] = counter + 1;
 			if (!counter) {
 				PubSub.pub('aloha.ui.scope.change');
 			}
