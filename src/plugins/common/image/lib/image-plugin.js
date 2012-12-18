@@ -1056,8 +1056,9 @@ i18n) {
 				//plugin.ui.imgSrcField.setTargetObject(targetObject, 'url');
 				plugin.ui.imgSrcField.setValue(targetObject.url);
 				plugin.ui.imgTitleField.setValue(targetObject.name);
-				plugin.ui.imgResizeHeightField.setValue(targetObject.height);
 				plugin.ui.imgResizeWidthField.setValue(targetObject.width);
+				plugin.ui.imgResizeHeightField.setValue(targetObject.height);
+				//plugin.ui.imgResizeHeightField.setValue('120px');
 
 				plugin.imageObj.attr('title', targetObject.name);
 
