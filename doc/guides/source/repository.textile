@@ -83,7 +83,7 @@ h4. Repository Item Renditions
 
 For some @type = document@ repository items, it makes sense to have multiple representations. For example, for rich text documents, you could have @.rtf@, @.docx@, @.odf@ and @pdf@ renditions (or _representations_ or _renderings_ or _derivatives_ or _variations_ or … inaccurately, but often used: _versions_). Another example: a vector graphics file in both @svg@ and @pdf@ format.
 
-The most archetypical example is probably the case of images: you typically have the "original" image, of which many derivatives are generated: a medium version, a small version and a thumbnail. These call all be renditions!
+The most archetypical example is probably the case of images: you typically have the "original" image, of which many derivatives are generated: a medium version, a small version and a thumbnail. These can all be renditions!
 
 A more complete example: a page document in a repository may be rendered in 3 different languages.
 Each of these 3 variations of that page can be served by the repository as a rendition of any of the other 2 translations that correspond with it. Each of these pages may be a stand-alone document in the repository as well. In fact, different renditions for a single document type will likely be different files which the repository will serve back in response to a request for a specific rendition of a given object.
