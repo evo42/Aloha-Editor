@@ -68,13 +68,16 @@ input:invalid, textarea:invalid { border-radius: 1px; -moz-box-shadow: 0px 0px 5
 a:link { -webkit-tap-highlight-color: #FF5E99; }
 */
 
+
 button {  width: auto; overflow: visible; }
+
+/*
 .ie7 img { -ms-interpolation-mode: bicubic; }
 
 body, select, input, textarea {  color: #444; }
 h1, h2, h3, h4, h5, h6 { font-weight: bold; color: #333333; }
 a, a:active, a:visited { color: #607890; }
-a:hover { color: #036; }
+a:hover { color: #036; }*/
 
 /* ==== Aloha Editor Boilerplate Styles ==== */
 /* ========================================= */
@@ -87,7 +90,7 @@ a:link { -webkit-tap-highlight-color: #b7d7fc; }
 
 html, body {
 	font-family: Georgia, serif;
-	color: #555555;
+	color: #fff;
 	height: 100%;
 }
 body {
@@ -95,6 +98,24 @@ body {
 	font-size: 1.05em;
 	line-height: 1.5em;
 }
+
+
+#page {
+    width: 700px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+
+#toolbar {
+    width: 480px;
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    /*border: 2px dotted red;*/
+}
+
+
 em, i {
 	font-style: italic;
 }
@@ -107,14 +128,14 @@ i {
 a,
 a:link,
 a:visited {
-	color: #0C53A4;
+	/*color: #0C53A4;*/
 	text-decoration: none;
 }
 a:hover,
 a:focus,
 a:active {
 	text-decoration: none;
-	border-bottom: 1px solid #0C53A4;
+	/*border-bottom: 1px solid #0C53A4;*/
 }
 table {
 	border: 1px solid black;

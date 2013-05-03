@@ -221,3 +221,6 @@ background-repeat: repeat-x;
 	border-bottom: 0;
 }
 /*-----------------------------------*/
+#menu {
+	display: none;
+}

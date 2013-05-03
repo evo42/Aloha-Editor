@@ -19,7 +19,8 @@
 		},
 		logLevels: { 'error': true, 'warn': true, 'info': true, 'debug': false, 'deprecated': true },
 		errorhandling: false,
-		ribbon: {enable: true},
+		ribbon: {enable: false},
+		sidebar: {disabled: true},
 		locale: 'en',
 		//waitSeconds: 300, // This can be turned on to avoid requirejs timeouts if Aloha startup code needs to be debugged
 		placeholder: {
