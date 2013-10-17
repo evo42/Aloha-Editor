@@ -114,4 +114,4 @@ Community Plugins:
 
 
 
-° this plugin is currently not working within Aloha Editor 0.22.x
+° this plugin is currently not working within Aloha Editor 0.22.x and later
